@@ -69,7 +69,7 @@ const CatalogPage = () => {
           <li key={camper.id}>
             <h2>{camper.name}</h2>
             <div>{camper.gallery[0]?.original}</div>
-            <p>Price: ${camper.price}</p>
+            <p>Price: ${camper.price.toFixed(2)}</p>
             <p>Rating: {camper.rating}</p>
             {camper.gallery.map((image, index) => (
               <img
@@ -88,7 +88,13 @@ const CatalogPage = () => {
                 ? 'Remove from Favorites'
                 : 'Add to Favorites'}
             </button>
-            <Link to={`/catalog/${camper.id}`}>View Details</Link>
+            <Link
+              to={`/catalog/${camper.id}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Show more
+            </Link>
           </li>
         ))}
       </ul>
