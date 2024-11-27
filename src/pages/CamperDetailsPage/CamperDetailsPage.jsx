@@ -1,92 +1,85 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import {
+  selectError,
+  selectLoading,
+  selectSelectedCamper,
+} from '../../redux/selectors';
+import { fetchCamperById } from '../../redux/campersSlice';
 
 const CamperDetailsPage = () => {
   const { id } = useParams();
-  const [camper, setCamper] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
+
+  const dispatch = useDispatch();
+  const selectedCamper = useSelector(selectSelectedCamper);
+  const loading = useSelector(selectLoading);
+  const error = useSelector(selectError);
 
   useEffect(() => {
-    const fetchCamperDetails = async () => {
-      try {
-        const response = await fetch(
-          `https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers/${id}`
-        );
-        const data = await response.json();
-        setCamper(data);
-        setLoading(false);
-      } catch (err) {
-        console.error('Error fetching camper details:', err);
-        setError(true);
-        setLoading(false);
-      }
-    };
+    dispatch(fetchCamperById(id));
+  }, [dispatch, id]);
 
-    fetchCamperDetails();
-  }, [id]);
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
 
-  if (loading) {
-    return <p>Loading...</p>;
-  }
-
-  if (error || !camper) {
-    return <p>Error loading camper details. Please try again later.</p>;
-  }
+  if (!selectedCamper) return <p>No camper found.</p>;
 
   return (
     <div>
-      <h1>{camper.name}</h1>
-      <p>{camper.description}</p>
+      <h1>{selectedCamper.name}</h1>
+      <p>Price: ${selectedCamper.price}</p>
+      <p>Rating: {selectedCamper.rating}</p>
+      <p>Description: {selectedCamper.description}</p>
       <h2>Gallery</h2>
-      <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
-        {camper.gallery.map((image, index) => (
+      <div style={{ display: 'flex' }}>
+        {selectedCamper.gallery.map((image, index) => (
           <img
             key={index}
             src={image.original}
-            alt={`Image ${index + 1}`}
+            alt={`${selectedCamper.name} - ${index + 1}`}
             style={{
-              width: '200px',
+              width: '300px',
               height: 'auto',
               borderRadius: '8px',
-              objectFit: 'cover',
+              marginRight: '10px',
             }}
           />
         ))}
       </div>
-
       <h2>Details</h2>
       <ul>
-        <li>Form: {camper.form}</li>
-        <li>Length: {camper.length}</li>
-        <li>Width: {camper.width}</li>
-        <li>Height: {camper.height}</li>
-        <li>Tank Capacity: {camper.tank}</li>
-        <li>Consumption: {camper.consumption}</li>
+        <li>Form: {selectedCamper.form}</li>
+        <li>Length: {selectedCamper.length}</li>
+        <li>Width: {selectedCamper.width}</li>
+        <li>Height: {selectedCamper.tank}</li>
+        <li>Consumption: {selectedCamper.consumption}</li>
       </ul>
 
       <h2>Features</h2>
       <ul>
-        {camper.transmission && <li>Transmission: {camper.transmission}</li>}
-        {camper.engine && <li>Engine: {camper.engine}</li>}
-        {camper.AC && <li>Air Conditioning</li>}
-        {camper.bathroom && <li>Bathroom</li>}
-        {camper.kitchen && <li>Kitchen</li>}
-        {camper.TV && <li>TV</li>}
-        {camper.radio && <li>Radio</li>}
-        {camper.refrigerator && <li>Refrigerator</li>}
-        {camper.microwave && <li>Microwave</li>}
-        {camper.gas && <li>Gas</li>}
-        {camper.water && <li>Water Supply</li>}
+        {selectedCamper.transmission && (
+          <li>Transmission: {selectedCamper.transmission}</li>
+        )}
+        {selectedCamper.engine && <li>Engine: {selectedCamper.engine}</li>}
+        {selectedCamper.AC && <li>Air Conditioning</li>}
+        {selectedCamper.bathroom && <li>Bathroom</li>}
+        {selectedCamper.kitchen && <li>Kitchen</li>}
+        {selectedCamper.TV && <li>TV</li>}
+        {selectedCamper.radio && <li>Radio</li>}
+        {selectedCamper.refrigerator && <li>Refrigerator</li>}
+        {selectedCamper.microwave && <li>Microwave</li>}
+        {selectedCamper.gas && <li>Gas</li>}
+        {selectedCamper.water && <li>Water Supply</li>}
       </ul>
-
-      <h2>Reviews</h2>
-      {camper.reviews?.length > 0 ? (
+      <h3>Reviews</h3>
+      {selectedCamper.reviews && selectedCamper.reviews.length > 0 ? (
         <ul>
-          {camper.reviews.map((review, index) => (
+          {selectedCamper.reviews.map((review, index) => (
             <li key={index}>
-              <strong>{review.reviewer_name}</strong> ({review.reviewer_rating}
-              /5):
+              <p>
+                {review.reviewer_name} - Rating: {review.reviewer_rating}
+              </p>
               <p>{review.comment}</p>
             </li>
           ))}
@@ -94,7 +87,6 @@ const CamperDetailsPage = () => {
       ) : (
         <p>No reviews available.</p>
       )}
-
       <h2>Booking Form</h2>
       <form>
         <div>
