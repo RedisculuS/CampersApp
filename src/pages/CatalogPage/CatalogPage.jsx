@@ -8,6 +8,7 @@ import {
 } from '../../redux/selectors';
 import {
   fetchCampers,
+  loadMoreCampers,
   resetCampers,
   setFilters,
   toggleFavorite,
@@ -16,7 +17,9 @@ import {
 const CatalogPage = () => {
   const dispatch = useDispatch();
 
-  const campers = useSelector(selectFilteredCampers);
+  // const campers = useSelector(selectFilteredCampers);
+  const campers = useSelector(state => state.campers.displayedCampers);
+  const allCampers = useSelector(state => state.campers.campers); // Всі кемпери
   const filters = useSelector(selectFilters);
   const favorites = useSelector(selectFavorites);
   const loading = useSelector(state => state.campers.loading);
@@ -39,6 +42,11 @@ const CatalogPage = () => {
     dispatch(toggleFavorite(camper));
   };
 
+  const handleLoadMore = () => {
+    // Завантажуємо наступні 4 кемпери
+    const nextCampers = allCampers.slice(campers.length, campers.length + 4);
+    dispatch(loadMoreCampers(nextCampers));
+  };
   return (
     <div>
       <h1>Catalog</h1>
@@ -98,7 +106,9 @@ const CatalogPage = () => {
           </li>
         ))}
       </ul>
-
+      {allCampers.length > campers.length && (
+        <button onClick={handleLoadMore}>Load More</button>
+      )}
       <div>
         <h2>Your Favorites</h2>
         {favorites.length === 0 ? (

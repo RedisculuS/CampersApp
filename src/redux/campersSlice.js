@@ -35,6 +35,7 @@ const campersSlice = createSlice({
   initialState: {
     campers: [],
     selectedCamper: null,
+    displayedCampers: [], // Вже відображені кемпери
     loading: false,
     error: null,
     filters: {},
@@ -65,6 +66,12 @@ const campersSlice = createSlice({
     },
     resetCampers(state) {
       state.campers = [];
+      state.displayedCampers = [];
+    },
+    loadMoreCampers(state, action) {
+      // Додаємо наступні 4 кемпери на основі ID
+      const nextCampers = action.payload;
+      state.displayedCampers = [...state.displayedCampers, ...nextCampers];
     },
   },
   extraReducers: builder => {
@@ -75,6 +82,7 @@ const campersSlice = createSlice({
       })
       .addCase(fetchCampers.fulfilled, (state, action) => {
         state.campers = action.payload;
+        state.displayedCampers = action.payload.slice(0, 4); // Перші 4 кемпери
         state.loading = false;
       })
       .addCase(fetchCampers.rejected, (state, action) => {
@@ -101,5 +109,6 @@ export const {
   toggleFavorite,
   resetCampers,
   removeFavorite,
+  loadMoreCampers,
 } = campersSlice.actions;
 export default campersSlice.reducer;
