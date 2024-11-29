@@ -1,3 +1,95 @@
 .wrapper {
   padding: 48px 64px;
+  font-family: var(--font-family);
+}
+
+.vehicleName {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 133%;
+  color: var(--main);
+  margin-bottom: 8px;
+}
+
+.ratingLocWrap {
+  display: flex;
+  gap: 16px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  /* text-decoration: underline; */
+  /* text-decoration-skip-ink: none; */
+  color: var(--main);
+  margin-bottom: 16px;
+}
+
+.ratLocWrap {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.vehiclePrice {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 133%;
+  color: var(--main);
+  margin-bottom: 24px;
+}
+
+.imgWrap {
+  display: flex;
+  gap: 48px;
+  margin-bottom: 28px;
+}
+
+.vehicleImg {
+  width: 312px;
+  height: 312px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.vehicleDescr {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--text);
+  margin-bottom: 60px;
+}
+
+.bottomWrap {
+  display: flex;
+  gap: 40px;
+}
+
+.descrTitleList {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+}
+
+.descrTitleWrap {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 120%;
+  color: var(--main);
+  text-transform: capitalize;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.divider {
+  background-color: var(--gray-light);
+  height: 2px;
+  width: 100%;
+  margin-bottom: 44px;
+}
+
+.active {
+  border-bottom: 5px solid var(--button);
+}
+
+a {
+  padding-bottom: 24px;
 }

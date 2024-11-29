@@ -59,7 +59,7 @@ const Filters = () => {
             <svg width={32} height={28}>
               <use href="../../../public/svg-sprite.svg#icon-wind" />
             </svg>
-            AC
+            <div>AC</div>
           </button>
           <button
             className={`${css.vehicleBtn} ${
@@ -75,7 +75,7 @@ const Filters = () => {
             <svg width={32} height={24}>
               <use href="../../../public/svg-sprite.svg#icon-diagram" />
             </svg>
-            Automatic
+            <div>Automatic</div>
           </button>
           <button
             className={`${css.vehicleBtn} ${
@@ -88,7 +88,7 @@ const Filters = () => {
             <svg width={33} height={30}>
               <use href="../../../public/svg-sprite.svg#icon-cup-hot" />
             </svg>
-            Kitchen
+            <div>Kitchen</div>
           </button>
           <button
             className={`${css.vehicleBtn} ${tempFilters.TV ? css.active : ''}`}
@@ -97,7 +97,7 @@ const Filters = () => {
             <svg width={32} height={25}>
               <use href="../../../public/svg-sprite.svg#icon-tv" />
             </svg>
-            TV
+            <div>TV</div>
           </button>
           <button
             className={`${css.vehicleBtn} ${
@@ -110,7 +110,7 @@ const Filters = () => {
             <svg width={31} height={27}>
               <use href="../../../public/svg-sprite.svg#icon-shower" />
             </svg>
-            Bathroom
+            <div>Bathroom</div>
           </button>
         </div>
       </div>
@@ -133,7 +133,7 @@ const Filters = () => {
             <svg width={32} height={32}>
               <use href="../../../public/svg-sprite.svg#icon-grid-1x2" />
             </svg>
-            van
+            <div>Van</div>
           </button>
 
           <button
@@ -150,7 +150,7 @@ const Filters = () => {
             <svg width={28} height={28}>
               <use href="../../../public/svg-sprite.svg#icon-grid" />
             </svg>
-            fullyIntegrated
+            <div> Fully Integrated</div>
           </button>
           <button
             className={`${css.vehicleBtn} ${
@@ -166,7 +166,7 @@ const Filters = () => {
             <svg width={28} height={28}>
               <use href="../../../public/svg-sprite.svg#icon-gap" />
             </svg>
-            Alcove
+            <div>Alcove</div>
           </button>
         </div>
       </div>

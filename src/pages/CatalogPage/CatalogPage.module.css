@@ -2,9 +2,10 @@
   display: flex;
   padding: 48px 64px;
   gap: 32px;
+  font-family: var(--font-family);
 }
 
-ul {
+.campersList {
   list-style: none;
   display: flex;
   flex-direction: column;
@@ -16,8 +17,6 @@ ul {
   border: 1px solid var(--gray-light);
   border-radius: 20px;
   padding: 24px;
-  /* width: 888px; */
-  /* height: 368px; */
   display: flex;
   gap: 24px;
 }
@@ -34,7 +33,8 @@ ul {
   align-items: center;
   justify-content: space-between;
   /* ??? */
-  gap: 50px;
+  /* gap: 50px; */
+  margin-bottom: 8px;
 }
 
 .vehicleName {
@@ -42,11 +42,6 @@ ul {
   font-size: 24px;
   line-height: 133%;
   color: var(--main);
-}
-
-.favWrap {
-  display: flex;
-  /* justify-content: flex-end; */
 }
 
 a {
@@ -86,12 +81,135 @@ a {
   letter-spacing: -0.01em;
   color: var(--main);
   background-color: transparent;
-  /* ??? */
-  margin-left: 100px;
-  /* margin-right: auto; */
+  margin: 0 auto;
 }
 
 .loadMoreBtn:hover,
 .loadMoreBtn:active {
   border-color: var(--button-hover);
+}
+
+.favWrap {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.favListTitle {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 120%;
+  color: var(--main);
+  margin-bottom: 20px;
+}
+
+.divider {
+  height: 1px;
+  width: 100%;
+  background-color: var(--gray-light);
+  margin-bottom: 20px;
+}
+
+.favList {
+  gap: 8px;
+}
+
+.favListItemDescr {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--text);
+  margin-bottom: 32px;
+}
+
+.camperDescr {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--text);
+  /* margin-bottom: 24px; */
+}
+
+.camperRating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--main);
+}
+
+.ratingIcon {
+  width: 16px;
+  height: 16px;
+  fill: var(--rating);
+}
+
+.ratingLocWrap {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.locationWrap {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--main);
+}
+
+.iconMap {
+  height: 16px;
+  width: 16px;
+}
+
+.favInCardWrap {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.favIcon {
+  width: 24px;
+  height: 24px;
+}
+
+.favIcon.active {
+  fill: var(--button);
+}
+
+.favBtn {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+
+.favBtn.active {
+  color: var(--button);
+}
+
+.inCardList {
+  margin-top: 24px;
+  margin-bottom: 24px;
+  display: flex;
+  list-style: none;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.inCardListItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 100px;
+  padding: 12px 18px;
+  background: var(--badges);
+  font-weight: 500;
+  /* text-align: center; */
+  color: var(--main);
 }

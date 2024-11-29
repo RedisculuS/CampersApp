@@ -5,6 +5,7 @@
   gap: 12px;
   padding: 24px 64px;
   background: var(--inputs);
+  font-family: var(--font-family);
 }
 
 .nav {
