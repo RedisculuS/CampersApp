@@ -1,12 +1,15 @@
 import { NavLink } from 'react-router-dom';
+import css from './HomePage.module.css';
 
 const HomePage = () => {
   return (
-    <div>
-      <h1>Welcome to travel trucks</h1>
-      <p>Find the best truck for your adventures!</p>
+    <div className={css.container}>
+      <h1 className={css.mainText}>Campers of your dreams</h1>
+      <p className={css.secondaryText}>
+        You can find anything you want in our catalog
+      </p>
       <NavLink to="/catalog">
-        <button>View Now</button>
+        <button className={css.btnToCatalog}>View Now</button>
       </NavLink>
     </div>
   );

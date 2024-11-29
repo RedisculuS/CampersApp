@@ -1,12 +1,13 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { Link, Outlet, useParams } from 'react-router-dom';
 import {
   selectError,
   selectLoading,
   selectSelectedCamper,
 } from '../../redux/selectors';
 import { fetchCamperById } from '../../redux/campersSlice';
+import css from './CamperDetailsPage.module.css';
 
 const CamperDetailsPage = () => {
   const { id } = useParams();
@@ -26,10 +27,14 @@ const CamperDetailsPage = () => {
   if (!selectedCamper) return <p>No camper found.</p>;
 
   return (
-    <div>
+    <div className={css.wrapper}>
       <h1>{selectedCamper.name}</h1>
+      <div>
+        <p>Rating: {selectedCamper.rating}</p>
+        <p>Location: {selectedCamper.location}</p>
+      </div>
       <p>Price: ${selectedCamper.price}</p>
-      <p>Rating: {selectedCamper.rating}</p>
+
       <p>Description: {selectedCamper.description}</p>
       <h2>Gallery</h2>
       <div style={{ display: 'flex' }}>
@@ -47,7 +52,22 @@ const CamperDetailsPage = () => {
           />
         ))}
       </div>
-      <h2>Details</h2>
+
+      <ul>
+        <li>
+          <Link to="features" state={{ features: selectedCamper }}>
+            features
+          </Link>
+        </li>
+        <li>
+          <Link to="reviews" state={{ reviews: selectedCamper.reviews }}>
+            reviews
+          </Link>
+        </li>
+      </ul>
+      <Outlet />
+
+      {/* <h2>Details</h2>
       <ul>
         <li>Form: {selectedCamper.form}</li>
         <li>Length: {selectedCamper.length}</li>
@@ -86,7 +106,7 @@ const CamperDetailsPage = () => {
         </ul>
       ) : (
         <p>No reviews available.</p>
-      )}
+      )} */}
       <h2>Booking Form</h2>
       <form>
         <div>

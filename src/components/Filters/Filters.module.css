@@ -1,0 +1,112 @@
+.wrapper {
+  padding: 48px 64px;
+  font-family: var(--font-family);
+}
+
+.locationText {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--gray);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.locationInput {
+  background: var(--inputs);
+  border: none;
+  border-radius: 12px;
+  padding: 18px 218px 18px 20px;
+  width: 360px;
+  height: 56px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  margin-bottom: 40px;
+}
+
+.locationInput:focus {
+  outline: none;
+}
+
+.filtersWrapText {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--text);
+  margin-bottom: 32px;
+}
+
+.filterSectionHeader {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 120%;
+  color: var(--main);
+}
+
+.vehileWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.divider {
+  height: 1px;
+  width: 100%;
+  background-color: var(--gray-light);
+}
+
+.vehicleBtnWrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.vehicleBtn {
+  border: 1px solid var(--gray-light);
+  border-radius: 10px;
+  /* padding: 16px 32px; */
+  width: 112px;
+  height: 96px;
+  background-color: transparent;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: var(--main);
+}
+
+.vehicleBtn:hover,
+.vehicleBtn:active {
+  border-color: var(--button);
+}
+
+.btnFilterWrap {
+  margin-top: 8px;
+  display: flex;
+  gap: 12px;
+}
+
+.filterBtn {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  border-radius: 200px;
+  /* padding: 16px 60px; */
+  width: 166px;
+  height: 56px;
+  border: none;
+  background: var(--button);
+}
+
+.filterBtn:hover,
+.filterBtn:focus {
+  background-color: var(--button-hover);
+}

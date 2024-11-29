@@ -39,11 +39,16 @@ const campersSlice = createSlice({
     loading: false,
     error: null,
     filters: {},
+    tempFilters: {}, // Тимчасові фільтри
     favorites: JSON.parse(localStorage.getItem('favorites')) || [],
   },
   reducers: {
+    setTempFilters(state, action) {
+      state.tempFilters = action.payload;
+    },
     resetFilters(state) {
       state.filters = {};
+      state.tempFilters = {};
     },
     setFilters(state, action) {
       state.filters = action.payload;
@@ -110,5 +115,6 @@ export const {
   resetCampers,
   removeFavorite,
   loadMoreCampers,
+  setTempFilters,
 } = campersSlice.actions;
 export default campersSlice.reducer;

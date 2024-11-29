@@ -1,18 +1,15 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import {
-  selectFavorites,
-  selectFilteredCampers,
-  selectFilters,
-} from '../../redux/selectors';
+import { selectFavorites, selectFilters } from '../../redux/selectors';
 import {
   fetchCampers,
   loadMoreCampers,
   resetCampers,
-  setFilters,
   toggleFavorite,
 } from '../../redux/campersSlice';
+import Filters from '../../components/Filters/Filters';
+import css from './CatalogPage.module.css';
 
 const CatalogPage = () => {
   const dispatch = useDispatch();
@@ -25,103 +22,95 @@ const CatalogPage = () => {
   const loading = useSelector(state => state.campers.loading);
   const error = useSelector(state => state.campers.error);
 
+  // Локальні фільтри для збереження обраних критеріїв
+  // const [localFilters, setLocalFilters] = useState({});
+
   useEffect(() => {
     dispatch(resetCampers());
     dispatch(fetchCampers(filters));
   }, [filters, dispatch]);
-
-  const handleFilterChange = (filterType, value) => {
-    dispatch(setFilters({ ...filters, [filterType]: value }));
-  };
-
-  const resetFilters = () => {
-    dispatch(setFilters({}));
-  };
 
   const handleToggleFavorite = camper => {
     dispatch(toggleFavorite(camper));
   };
 
   const handleLoadMore = () => {
-    // Завантажуємо наступні 4 кемпери
     const nextCampers = allCampers.slice(campers.length, campers.length + 4);
     dispatch(loadMoreCampers(nextCampers));
   };
+
   return (
-    <div>
-      <h1>Catalog</h1>
-      <p>Explore our campers collection.</p>
+    <div className={css.wrapper}>
+      {/* <h1>Catalog</h1>
+      <p>Explore our campers collection.</p> */}
 
-      <div>
-        <button onClick={() => handleFilterChange('AC', true)}>AC</button>
-        <button onClick={() => handleFilterChange('transmission', 'automatic')}>
-          Automatic
-        </button>
-        <button onClick={() => handleFilterChange('kitchen', true)}>
-          Kitchen
-        </button>
-        <button onClick={() => handleFilterChange('TV', true)}>TV</button>
-        <button onClick={() => handleFilterChange('bathroom', true)}>
-          Bathroom
-        </button>
-        <button onClick={() => resetFilters()}>Reset filters</button>
-      </div>
-
+      <Filters />
       {loading ? <p>Loading...</p> : null}
       {error ? <p>Error: {error}</p> : null}
 
       {!loading && campers.length === 0 && <p>No campers found.</p>}
 
-      <ul>
-        {campers.map(camper => (
-          <li key={camper.id}>
-            <h2>{camper.name}</h2>
-            <div>{camper.gallery[0]?.original}</div>
-            <p>Price: ${camper.price.toFixed(2)}</p>
-            <p>Rating: {camper.rating}</p>
-            {camper.gallery.map((image, index) => (
-              <img
-                key={index}
-                src={image.thumb}
-                alt={`${camper.name} - ${index + 1}`}
-                style={{
-                  width: '100px',
-                  height: 'auto',
-                  borderRadius: '8px',
-                }}
-              />
-            ))}
-            <button onClick={() => handleToggleFavorite(camper)}>
-              {favorites.some(fav => fav.id === camper.id)
-                ? 'Remove from Favorites'
-                : 'Add to Favorites'}
-            </button>
-            <Link
-              to={`/catalog/${camper.id}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Show more
-            </Link>
-          </li>
-        ))}
-      </ul>
-      {allCampers.length > campers.length && (
-        <button onClick={handleLoadMore}>Load More</button>
-      )}
       <div>
-        <h2>Your Favorites</h2>
-        {favorites.length === 0 ? (
-          <p>No favorites yet.</p>
-        ) : (
-          <ul>
-            {favorites.map(fav => (
-              <li key={fav.id}>
-                <h3>{fav.name}</h3>
-              </li>
-            ))}
-          </ul>
+        <ul>
+          {campers.map(camper => (
+            <li className={css.vehicleListItem} key={camper.id}>
+              <img
+                className={css.vehicleImg}
+                key={0}
+                src={camper.gallery[0]?.thumb}
+                alt={`${camper.name} - 1`}
+              />
+              <div>
+                <div className={css.vehicleTitleWrap}>
+                  <h2 className={css.vehicleName}>{camper.name}</h2>
+                  <div className={css.favWrap}>
+                    <p className={css.vehicleName}>
+                      €{camper.price.toFixed(2)}
+                    </p>
+                    <button onClick={() => handleToggleFavorite(camper)}>
+                      {favorites.some(fav => fav.id === camper.id)
+                        ? 'Remove from Favorites'
+                        : 'Add to Favorites'}
+                    </button>
+                  </div>
+                </div>
+
+                <p>
+                  Rating: {camper.rating}({camper.reviews.length} Reviews)
+                </p>
+                <p>{camper.description}</p>
+                <button className={css.showMoreBtn}>
+                  <Link
+                    to={`/catalog/${camper.id}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Show more
+                  </Link>
+                </button>
+              </div>
+            </li>
+          ))}
+        </ul>
+        {allCampers.length > campers.length && (
+          <button className={css.loadMoreBtn} onClick={handleLoadMore}>
+            Load More
+          </button>
         )}
+        <div>
+          <h2>Your Favorites</h2>
+          {favorites.length === 0 ? (
+            <p>No favorites yet.</p>
+          ) : (
+            <ul>
+              {favorites.map(fav => (
+                <li key={fav.id}>
+                  <h3>{fav.name}</h3>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
       </div>
     </div>
   );
