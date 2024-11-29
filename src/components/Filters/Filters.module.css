@@ -1,5 +1,5 @@
 .wrapper {
-  padding: 48px 64px;
+  /* padding: 48px 64px; */
   font-family: var(--font-family);
 }
 
@@ -12,11 +12,16 @@
   margin-bottom: 8px;
 }
 
+.inputWrap {
+  position: relative;
+}
+
 .locationInput {
   background: var(--inputs);
   border: none;
   border-radius: 12px;
-  padding: 18px 218px 18px 20px;
+  /* padding: 18px 218px 18px 20px; */
+  padding-left: 48px;
   width: 360px;
   height: 56px;
   font-weight: 400;
@@ -25,8 +30,25 @@
   margin-bottom: 40px;
 }
 
+.inputIcon {
+  fill: var(--gray);
+  position: absolute;
+  top: 18px;
+  left: 20px;
+  height: 20px;
+  width: 20px;
+}
+
 .locationInput:focus {
   outline: none;
+}
+
+.locationInput:focus + .inputIcon {
+  fill: var(--main);
+}
+
+.locationInput:active + .inputIcon {
+  fill: var(--main);
 }
 
 .filtersWrapText {
@@ -80,8 +102,12 @@
   color: var(--main);
 }
 
-.vehicleBtn:hover,
-.vehicleBtn:active {
+/* .active {
+  color: var(--button-hover);
+} */
+
+/* .vehicleBtn:hover, */
+.vehicleBtn.active {
   border-color: var(--button);
 }
 

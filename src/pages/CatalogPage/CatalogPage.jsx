@@ -14,16 +14,12 @@ import css from './CatalogPage.module.css';
 const CatalogPage = () => {
   const dispatch = useDispatch();
 
-  // const campers = useSelector(selectFilteredCampers);
   const campers = useSelector(state => state.campers.displayedCampers);
-  const allCampers = useSelector(state => state.campers.campers); // Всі кемпери
+  const allCampers = useSelector(state => state.campers.campers);
   const filters = useSelector(selectFilters);
   const favorites = useSelector(selectFavorites);
   const loading = useSelector(state => state.campers.loading);
   const error = useSelector(state => state.campers.error);
-
-  // Локальні фільтри для збереження обраних критеріїв
-  // const [localFilters, setLocalFilters] = useState({});
 
   useEffect(() => {
     dispatch(resetCampers());
@@ -41,10 +37,8 @@ const CatalogPage = () => {
 
   return (
     <div className={css.wrapper}>
-      {/* <h1>Catalog</h1>
-      <p>Explore our campers collection.</p> */}
-
       <Filters />
+
       {loading ? <p>Loading...</p> : null}
       {error ? <p>Error: {error}</p> : null}
 

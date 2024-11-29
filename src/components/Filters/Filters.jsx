@@ -33,10 +33,7 @@ const Filters = () => {
     <div className={css.wrapper}>
       <div>
         <p className={css.locationText}>Location</p>
-        <div>
-          {/* <svg>
-            <use href="../../public/svg-sprite.svg#icon-tv>" />
-          </svg> */}
+        <div className={css.inputWrap}>
           <input
             className={css.locationInput}
             id="location"
@@ -45,6 +42,9 @@ const Filters = () => {
             value={tempFilters.location || ''}
             onChange={e => handleTempFilterChange('location', e.target.value)}
           />
+          <svg className={css.inputIcon}>
+            <use href="../../../public/svg-sprite.svg#icon-map" />
+          </svg>
         </div>
       </div>
       <p className={css.filtersWrapText}>Filters</p>
@@ -53,13 +53,18 @@ const Filters = () => {
         <div className={css.divider}></div>
         <div className={css.vehicleBtnWrap}>
           <button
-            className={css.vehicleBtn}
+            className={`${css.vehicleBtn} ${tempFilters.AC ? css.active : ''}`}
             onClick={() => handleTempFilterChange('AC', !tempFilters.AC)}
           >
-            AC {tempFilters.AC ? '✓' : ''}
+            <svg width={32} height={28}>
+              <use href="../../../public/svg-sprite.svg#icon-wind" />
+            </svg>
+            AC
           </button>
           <button
-            className={css.vehicleBtn}
+            className={`${css.vehicleBtn} ${
+              tempFilters.transmission ? css.active : ''
+            }`}
             onClick={() =>
               handleTempFilterChange(
                 'transmission',
@@ -67,29 +72,45 @@ const Filters = () => {
               )
             }
           >
-            Automatic {tempFilters.transmission === 'automatic' ? '✓' : ''}
+            <svg width={32} height={24}>
+              <use href="../../../public/svg-sprite.svg#icon-diagram" />
+            </svg>
+            Automatic
           </button>
           <button
-            className={css.vehicleBtn}
+            className={`${css.vehicleBtn} ${
+              tempFilters.kitchen ? css.active : ''
+            }`}
             onClick={() =>
               handleTempFilterChange('kitchen', !tempFilters.kitchen)
             }
           >
-            Kitchen {tempFilters.kitchen ? '✓' : ''}
+            <svg width={33} height={30}>
+              <use href="../../../public/svg-sprite.svg#icon-cup-hot" />
+            </svg>
+            Kitchen
           </button>
           <button
-            className={css.vehicleBtn}
+            className={`${css.vehicleBtn} ${tempFilters.TV ? css.active : ''}`}
             onClick={() => handleTempFilterChange('TV', !tempFilters.TV)}
           >
-            TV {tempFilters.TV ? '✓' : ''}
+            <svg width={32} height={25}>
+              <use href="../../../public/svg-sprite.svg#icon-tv" />
+            </svg>
+            TV
           </button>
           <button
-            className={css.vehicleBtn}
+            className={`${css.vehicleBtn} ${
+              tempFilters.bathroom ? css.active : ''
+            }`}
             onClick={() =>
               handleTempFilterChange('bathroom', !tempFilters.bathroom)
             }
           >
-            Bathroom {tempFilters.bathroom ? '✓' : ''}
+            <svg width={31} height={27}>
+              <use href="../../../public/svg-sprite.svg#icon-shower" />
+            </svg>
+            Bathroom
           </button>
         </div>
       </div>
@@ -99,7 +120,9 @@ const Filters = () => {
         <div className={css.divider}></div>
         <div className={css.vehicleBtnWrap}>
           <button
-            className={css.vehicleBtn}
+            className={`${css.vehicleBtn} ${
+              tempFilters.form === 'panelTruck' ? css.active : ''
+            }`}
             onClick={() =>
               handleTempFilterChange(
                 'form',
@@ -107,21 +130,16 @@ const Filters = () => {
               )
             }
           >
-            van {tempFilters.form === 'panelTruck' ? '✓' : ''}
+            <svg width={32} height={32}>
+              <use href="../../../public/svg-sprite.svg#icon-grid-1x2" />
+            </svg>
+            van
           </button>
+
           <button
-            className={css.vehicleBtn}
-            onClick={() =>
-              handleTempFilterChange(
-                'form',
-                tempFilters.form === 'alcove' ? '' : 'alcove'
-              )
-            }
-          >
-            Alcove {tempFilters.form === 'alcove' ? '✓' : ''}
-          </button>
-          <button
-            className={css.vehicleBtn}
+            className={`${css.vehicleBtn} ${
+              tempFilters.form === 'fullyIntegrated' ? css.active : ''
+            }`}
             onClick={() =>
               handleTempFilterChange(
                 'form',
@@ -129,7 +147,26 @@ const Filters = () => {
               )
             }
           >
-            fullyIntegrated {tempFilters.form === 'fullyIntegrated' ? '✓' : ''}
+            <svg width={28} height={28}>
+              <use href="../../../public/svg-sprite.svg#icon-grid" />
+            </svg>
+            fullyIntegrated
+          </button>
+          <button
+            className={`${css.vehicleBtn} ${
+              tempFilters.form === 'alcove' ? css.active : ''
+            }`}
+            onClick={() =>
+              handleTempFilterChange(
+                'form',
+                tempFilters.form === 'alcove' ? '' : 'alcove'
+              )
+            }
+          >
+            <svg width={28} height={28}>
+              <use href="../../../public/svg-sprite.svg#icon-gap" />
+            </svg>
+            Alcove
           </button>
         </div>
       </div>

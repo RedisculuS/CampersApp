@@ -1,7 +1,9 @@
 .container {
-  padding-top: 260px;
-  padding-left: 64px;
-  background-color: bisque;
+  padding: 260px 64px;
+  background: url('../../../public/background.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
 }
 
 .mainText {
@@ -16,6 +18,7 @@
   font-size: 24px;
   line-height: 133%;
   color: var(--inputs);
+  margin-bottom: 40px;
 }
 
 .btnToCatalog {
