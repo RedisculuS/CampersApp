@@ -1,5 +1,6 @@
 .wrapper {
   padding: 48px 64px;
+  /* display: block; */
   font-family: var(--font-family);
 }
 
@@ -60,6 +61,7 @@
 
 .bottomWrap {
   display: flex;
+  justify-content: space-between;
   gap: 40px;
 }
 

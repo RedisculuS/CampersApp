@@ -10,10 +10,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@mui/x-date-pickers": "^7.23.0",
     "@reduxjs/toolkit": "^2.3.0",
     "clsx": "^2.1.1",
+    "date-fns": "^4.1.0",
+    "dayjs": "^1.11.13",
     "modern-normalize": "^3.0.1",
     "react": "^18.3.1",
+    "react-datepicker": "^7.5.0",
     "react-dom": "^18.3.1",
     "react-ellipsis-text": "^1.2.1",
     "react-redux": "^9.1.2",

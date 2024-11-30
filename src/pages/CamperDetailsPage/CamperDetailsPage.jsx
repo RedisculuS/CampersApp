@@ -9,6 +9,7 @@ import {
 import { fetchCamperById } from '../../redux/campersSlice';
 import css from './CamperDetailsPage.module.css';
 import clsx from 'clsx';
+import BookingForm from '../../components/BookingForm/BookingForm';
 
 const CamperDetailsPage = () => {
   const { id } = useParams();
@@ -90,30 +91,7 @@ const CamperDetailsPage = () => {
 
       <div className={css.bottomWrap}>
         <Outlet />
-
-        <form>
-          <h2>Booking Form</h2>
-          <div>
-            <label htmlFor="startDate">Start Date:</label>
-            <input type="date" id="startDate" name="startDate" required />
-          </div>
-          <div>
-            <label htmlFor="endDate">End Date:</label>
-            <input type="date" id="endDate" name="endDate" required />
-          </div>
-          <div>
-            <label htmlFor="guests">Number of Guests:</label>
-            <input
-              type="number"
-              id="guests"
-              name="guests"
-              min="1"
-              max="6"
-              required
-            />
-          </div>
-          <button type="submit">Book Now</button>
-        </form>
+        <BookingForm />
       </div>
     </div>
   );

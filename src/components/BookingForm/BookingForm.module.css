@@ -1,0 +1,115 @@
+.wrapper {
+  font-family: var(--font-family);
+}
+
+.form {
+  min-width: 46vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 44px 57px;
+  border: 1px solid var(--gray-light);
+  border-radius: 10px;
+  /* max-width: 400px; */
+  /* margin: 0 auto; */
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 120%;
+  color: var(--main);
+  margin-bottom: 8px;
+}
+
+p {
+  margin-bottom: 24px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--gray);
+}
+
+input {
+  border-radius: 12px;
+  background: var(--inputs);
+  border: none;
+  /* width: 527px; */
+  height: 60px;
+  padding: 18px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--gray);
+  margin-bottom: 14px;
+}
+
+input:focus {
+  outline: none;
+}
+
+textarea {
+  resize: none;
+  border-radius: 10px;
+  border: none;
+  height: 118px;
+  background: var(--inputs);
+  padding: 18px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--gray);
+  margin-bottom: 24px;
+}
+textarea:focus {
+  outline: none;
+}
+
+.submitButton {
+  border: none;
+  border-radius: 200px;
+  padding: 16px 63px;
+  /* width: 166px; */
+  /* height: 56px; */
+  background: var(--button);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  margin: 0 auto;
+  margin-top: 24px;
+}
+
+.submitButton:hover,
+.submitButton:active {
+  background: var(--button-hover);
+}
+
+.datePicker {
+  width: 100%;
+  border-radius: 12px;
+  background: var(--inputs);
+  border: none;
+  height: 60px;
+  padding: 18px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--gray);
+  /* margin-bottom: 14px; */
+}
+
+.customCalendar {
+  background-color: transparent;
+}
+
+/* .react-datepicker__header {
+  background-color: black;
+}
+
+.react-datepicker {
+  border: none;
+  box-shadow: #f2f4f7 0px 0px 10px 6px;
+} */

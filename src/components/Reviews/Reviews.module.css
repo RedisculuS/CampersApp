@@ -1,0 +1,51 @@
+.listWrap {
+  padding-top: 12px;
+  /* padding-left: 0; */
+  list-style: none;
+  font-family: var(--font-family);
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+}
+
+.reviewHeader {
+  display: flex;
+  /* align-items: baseline; */
+  gap: 16px;
+}
+
+.nicknameWrap {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  background: var(--badges);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 133%;
+  color: var(--button);
+}
+
+.ratingNameWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  /* justify-content: center;
+  align-items: flex-start; */
+  padding: 8px;
+  /* gap: 0; */
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--main);
+  margin-bottom: 16px;
+}
+
+.reviewComment {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--text);
+}
