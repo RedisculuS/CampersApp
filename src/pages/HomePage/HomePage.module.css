@@ -4,9 +4,12 @@
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
+  font-family: var(--font-family);
+  height: calc(100vh - 72px);
 }
 
 .mainText {
+  margin-bottom: 16px;
   font-weight: 600;
   font-size: 48px;
   line-height: 67%;
@@ -22,6 +25,7 @@
 }
 
 .btnToCatalog {
+  font-family: inherit;
   background: var(--button);
   border: none;
   border-radius: 200px;

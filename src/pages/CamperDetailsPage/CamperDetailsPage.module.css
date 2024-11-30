@@ -1,6 +1,5 @@
 .wrapper {
   padding: 48px 64px;
-  /* display: block; */
   font-family: var(--font-family);
 }
 
@@ -18,10 +17,12 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 150%;
-  /* text-decoration: underline; */
-  /* text-decoration-skip-ink: none; */
   color: var(--main);
   margin-bottom: 16px;
+}
+
+.ratingDescr {
+  text-decoration: underline;
 }
 
 .ratLocWrap {
@@ -93,5 +94,7 @@
 }
 
 a {
+  text-decoration: none;
+  color: var(--main);
   padding-bottom: 24px;
 }

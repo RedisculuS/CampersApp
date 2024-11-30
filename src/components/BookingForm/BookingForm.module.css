@@ -11,8 +11,6 @@
   padding: 44px 57px;
   border: 1px solid var(--gray-light);
   border-radius: 10px;
-  /* max-width: 400px; */
-  /* margin: 0 auto; */
 }
 
 h2 {
@@ -23,7 +21,7 @@ h2 {
   margin-bottom: 8px;
 }
 
-p {
+.formSecondaryText {
   margin-bottom: 24px;
   font-weight: 400;
   font-size: 16px;
@@ -35,7 +33,6 @@ input {
   border-radius: 12px;
   background: var(--inputs);
   border: none;
-  /* width: 527px; */
   height: 60px;
   padding: 18px;
   font-weight: 400;
@@ -70,8 +67,7 @@ textarea:focus {
   border: none;
   border-radius: 200px;
   padding: 16px 63px;
-  /* width: 166px; */
-  /* height: 56px; */
+
   background: var(--button);
   font-weight: 500;
   font-size: 16px;
@@ -98,18 +94,8 @@ textarea:focus {
   font-size: 16px;
   line-height: 150%;
   color: var(--gray);
-  /* margin-bottom: 14px; */
 }
 
 .customCalendar {
   background-color: transparent;
 }
-
-/* .react-datepicker__header {
-  background-color: black;
-}
-
-.react-datepicker {
-  border: none;
-  box-shadow: #f2f4f7 0px 0px 10px 6px;
-} */

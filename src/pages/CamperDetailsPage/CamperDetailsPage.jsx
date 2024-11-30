@@ -10,6 +10,7 @@ import { fetchCamperById } from '../../redux/campersSlice';
 import css from './CamperDetailsPage.module.css';
 import clsx from 'clsx';
 import BookingForm from '../../components/BookingForm/BookingForm';
+import Loader from '../../components/Loader/Loader';
 
 const CamperDetailsPage = () => {
   const { id } = useParams();
@@ -23,7 +24,7 @@ const CamperDetailsPage = () => {
     dispatch(fetchCamperById(id));
   }, [dispatch, id]);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loader />;
   if (error) return <p>Error: {error}</p>;
 
   if (!selectedCamper) return <p>No camper found.</p>;
@@ -43,7 +44,7 @@ const CamperDetailsPage = () => {
               fill="#FFC531"
             />
           </svg>
-          <p>
+          <p className={css.ratingDescr}>
             {selectedCamper.rating}({selectedCamper.reviews.length} Reviews)
           </p>
         </div>

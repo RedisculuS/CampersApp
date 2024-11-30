@@ -35,11 +35,11 @@ const campersSlice = createSlice({
   initialState: {
     campers: [],
     selectedCamper: null,
-    displayedCampers: [], // Вже відображені кемпери
+    displayedCampers: [],
     loading: false,
     error: null,
     filters: {},
-    tempFilters: {}, // Тимчасові фільтри
+    tempFilters: {},
     favorites: JSON.parse(localStorage.getItem('favorites')) || [],
   },
   reducers: {
@@ -74,7 +74,6 @@ const campersSlice = createSlice({
       state.displayedCampers = [];
     },
     loadMoreCampers(state, action) {
-      // Додаємо наступні 4 кемпери на основі ID
       const nextCampers = action.payload;
       state.displayedCampers = [...state.displayedCampers, ...nextCampers];
     },
@@ -87,7 +86,7 @@ const campersSlice = createSlice({
       })
       .addCase(fetchCampers.fulfilled, (state, action) => {
         state.campers = action.payload;
-        state.displayedCampers = action.payload.slice(0, 4); // Перші 4 кемпери
+        state.displayedCampers = action.payload.slice(0, 4);
         state.loading = false;
       })
       .addCase(fetchCampers.rejected, (state, action) => {

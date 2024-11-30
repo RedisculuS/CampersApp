@@ -3,7 +3,7 @@ import css from './Features.module.css';
 
 const Features = () => {
   const location = useLocation();
-  const { features } = location.state || {}; // Отримуємо дані з state
+  const { features } = location.state || {}; 
 
   if (!features) return <p>No features available.</p>;
 

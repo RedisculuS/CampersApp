@@ -4,6 +4,9 @@
   gap: 32px;
   font-family: var(--font-family);
 }
+.listWrap {
+  width: 100%;
+}
 
 .campersList {
   list-style: none;
@@ -27,13 +30,14 @@
   height: 320px;
   object-fit: cover;
 }
+.cardInfoWrap {
+  width: 100%;
+}
 
 .vehicleTitleWrap {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* ??? */
-  /* gap: 50px; */
   margin-bottom: 8px;
 }
 
@@ -42,6 +46,7 @@
   font-size: 24px;
   line-height: 133%;
   color: var(--main);
+  margin-bottom: 0;
 }
 
 a {
@@ -113,6 +118,7 @@ a {
 
 .favList {
   gap: 8px;
+  list-style: none;
 }
 
 .favListItemDescr {
@@ -128,7 +134,6 @@ a {
   font-size: 16px;
   line-height: 150%;
   color: var(--text);
-  /* margin-bottom: 24px; */
 }
 
 .camperRating {
@@ -139,6 +144,7 @@ a {
   font-size: 16px;
   line-height: 150%;
   color: var(--main);
+  text-decoration: underline;
 }
 
 .ratingIcon {
@@ -151,6 +157,15 @@ a {
   display: flex;
   gap: 16px;
   margin-bottom: 24px;
+  align-items: baseline;
+}
+
+.locationTitle {
+  margin-bottom: 0;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--main);
 }
 
 .locationWrap {
@@ -172,6 +187,7 @@ a {
   display: flex;
   gap: 12px;
   align-items: center;
+  justify-content: center;
 }
 
 .favIcon {
@@ -210,6 +226,5 @@ a {
   padding: 12px 18px;
   background: var(--badges);
   font-weight: 500;
-  /* text-align: center; */
   color: var(--main);
 }

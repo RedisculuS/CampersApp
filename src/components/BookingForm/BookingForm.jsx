@@ -4,6 +4,8 @@ import DatePicker from 'react-datepicker';
 // import { newDate } from 'react-datepicker/dist/date_utils';
 // import { addDays } from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const BookingForm = () => {
   const [formData, setFormData] = useState({
@@ -42,7 +44,8 @@ const BookingForm = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log('Submitted data:', formData);
+    // console.log('Submitted data:', formData);
+    toast.success('Booking confirmed successfully!');
     setFormData({
       name: '',
       email: '',
@@ -55,7 +58,9 @@ const BookingForm = () => {
     <div className={css.wrapper}>
       <form className={css.form} onSubmit={handleSubmit}>
         <h2>Book your campervan now</h2>
-        <p>Stay connected! We are always ready to help you.</p>
+        <p className={css.formSecondaryText}>
+          Stay connected! We are always ready to help you.
+        </p>
 
         <input
           type="text"
@@ -105,6 +110,7 @@ const BookingForm = () => {
           Send
         </button>
       </form>
+      <ToastContainer position="top-center" />
     </div>
   );
 };

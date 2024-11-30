@@ -1,5 +1,4 @@
 .wrapper {
-  /* padding: 48px 64px; */
   font-family: var(--font-family);
 }
 
@@ -20,7 +19,6 @@
   background: var(--inputs);
   border: none;
   border-radius: 12px;
-  /* padding: 18px 218px 18px 20px; */
   padding-left: 48px;
   width: 360px;
   height: 56px;
@@ -89,7 +87,6 @@
 .vehicleBtn {
   border: 1px solid var(--gray-light);
   border-radius: 10px;
-  /* padding: 16px 32px; */
   width: 112px;
   height: 96px;
   background-color: transparent;
@@ -102,11 +99,6 @@
   color: var(--main);
 }
 
-/* .active {
-  color: var(--button-hover);
-} */
-
-/* .vehicleBtn:hover, */
 .vehicleBtn.active {
   border-color: var(--button);
 }
@@ -125,7 +117,6 @@
   letter-spacing: -0.01em;
   color: var(--white);
   border-radius: 200px;
-  /* padding: 16px 60px; */
   width: 166px;
   height: 56px;
   border: none;
