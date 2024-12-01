@@ -1,11 +1,10 @@
 import { useState } from 'react';
-import css from './BookingForm.module.css'; // Стилі для форми
-import DatePicker from 'react-datepicker';
-// import { newDate } from 'react-datepicker/dist/date_utils';
-// import { addDays } from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
+import css from './BookingForm.module.css';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { enUS } from 'date-fns/locale';
 
 const BookingForm = () => {
   const [formData, setFormData] = useState({
@@ -15,25 +14,31 @@ const BookingForm = () => {
     comment: '',
   });
 
-  //   const [bookingDate, setBookingDate] = useState(null);
-
-  //   const handleDateChange = date => {
-  //     setBookingDate(date);
-  //   };
-
   const [bookingDate, setBookingDate] = useState(null);
   const [error, setError] = useState('');
+  const [isCalendarOpen, setIsCalendarOpen] = useState(false);
 
   const handleDateChange = date => {
-    const today = new Date();
-    today.setHours(0, 0, 0, 0); // Залишаємо тільки дату
+    console.log('Selected date (raw):', date);
+    const normalizedDate = new Date(
+      Date.UTC(date.getFullYear(), date.getMonth(), date.getDate())
+    );
+    console.log('Normalized date:', normalizedDate);
 
-    if (date < today) {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    if (normalizedDate < today) {
       setError(true);
       setBookingDate(null);
     } else {
       setError(false);
-      setBookingDate(date);
+      setBookingDate(normalizedDate);
+      setFormData(prevData => ({
+        ...prevData,
+        bookingDate: normalizedDate.toISOString().split('T')[0],
+      }));
+      setIsCalendarOpen(false);
     }
   };
 
@@ -41,10 +46,12 @@ const BookingForm = () => {
     const { name, value } = e.target;
     setFormData(prevData => ({ ...prevData, [name]: value }));
   };
+  const toggleCalendar = () => {
+    setIsCalendarOpen(prev => !prev);
+  };
 
   const handleSubmit = e => {
     e.preventDefault();
-    // console.log('Submitted data:', formData);
     toast.success('Booking confirmed successfully!');
     setFormData({
       name: '',
@@ -52,6 +59,7 @@ const BookingForm = () => {
       bookingDate: '',
       comment: '',
     });
+    setBookingDate(null);
   };
 
   return (
@@ -79,25 +87,29 @@ const BookingForm = () => {
           onChange={handleChange}
           required
         />
-
-        {/* <input
-          type="text"
-          name="bookingDate"
-          placeholder="Booking date*"
-          value={formData.bookingDate}
-          onChange={handleChange}
-          required
-        /> */}
-        <DatePicker
-          selected={bookingDate}
-          onChange={handleDateChange}
-          className={`${css.datePicker} ${error ? 'error' : ''}`}
-          calendarClassName={css.customCalendar}
-          placeholderText={
-            error ? 'Select a day between today' : 'Booking date'
-          }
-          showPopperArrow={true}
-        />
+        <div className={css.datePickerWrapper}>
+          <input
+            type="text"
+            name="bookingDate"
+            placeholder={error ? 'Select a date between today' : 'Booking date'}
+            value={formData.bookingDate}
+            readOnly
+            onClick={toggleCalendar}
+            className={css.datePicker}
+          />
+          {isCalendarOpen && (
+            <div className={css.calendarWrapper}>
+              <Calendar
+                next2Label={null}
+                prev2Label={null}
+                onChange={handleDateChange}
+                value={bookingDate}
+                className={css.calendar}
+                locale={enUS}
+              />
+            </div>
+          )}
+        </div>
 
         <textarea
           name="comment"

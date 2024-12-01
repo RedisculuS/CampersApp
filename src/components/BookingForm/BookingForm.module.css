@@ -96,6 +96,22 @@ textarea:focus {
   color: var(--gray);
 }
 
-.customCalendar {
-  background-color: transparent;
+.calendar {
+  font-family: var(--font-family);
+  border: 1px solid var(--text);
+  border-radius: 12px;
+  width: 276px;
+  height: 100%;
+}
+
+.datePickerWrapper {
+  position: relative;
+}
+
+.calendarWrapper {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 10;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }

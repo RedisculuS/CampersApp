@@ -6,6 +6,9 @@
   background-size: cover;
   font-family: var(--font-family);
   height: calc(100vh - 72px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .mainText {
@@ -42,4 +45,5 @@
 .btnToCatalog:hover,
 .btnToCatalog:active {
   background-color: var(--button-hover);
+  transition: background-color 2s cubic-bezier(0.47, 0.39, 0.41, 0.7) 0s;
 }
