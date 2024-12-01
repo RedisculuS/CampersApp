@@ -50,7 +50,7 @@ const CamperDetailsPage = () => {
         </div>
         <div className={css.ratLocWrap}>
           <svg width={16} height={16}>
-            <use href="../../../public/svg-sprite.svg#icon-map" />
+            <use href="/svg-sprite.svg#icon-map" />
           </svg>
           <p>Location: {selectedCamper.location}</p>
         </div>

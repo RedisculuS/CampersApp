@@ -96,7 +96,7 @@ const CatalogPage = () => {
                             : ''
                         }`}
                       >
-                        <use href="../../../public/svg-sprite.svg#icon-heart"></use>
+                        <use href="/svg-sprite.svg#icon-heart"></use>
                       </svg>
                       {favorites.some(fav => fav.id === camper.id)}
                     </button>
@@ -116,7 +116,7 @@ const CatalogPage = () => {
                   </p>
                   <div className={css.locationWrap}>
                     <svg className={css.iconMap}>
-                      <use href="../../../public/svg-sprite.svg#icon-map" />
+                      <use href="/svg-sprite.svg#icon-map" />
                     </svg>
                     <p className={css.locationTitle}>{camper.location}</p>
                   </div>
@@ -134,7 +134,7 @@ const CatalogPage = () => {
                   {camper.transmission ? (
                     <li className={css.inCardListItem}>
                       <svg width={20} height={16}>
-                        <use href="../../../public/svg-sprite.svg#icon-diagram" />
+                        <use href="/svg-sprite.svg#icon-diagram" />
                       </svg>
                       {camper.transmission}
                     </li>
@@ -155,7 +155,7 @@ const CatalogPage = () => {
                   {camper.kitchen ? (
                     <li className={css.inCardListItem}>
                       <svg width={20} height={20}>
-                        <use href="../../../public/svg-sprite.svg#icon-cup-hot" />
+                        <use href="/svg-sprite.svg#icon-cup-hot" />
                       </svg>
                       {camper.kitchen}Kitchen
                     </li>
@@ -165,7 +165,7 @@ const CatalogPage = () => {
                   {camper.AC ? (
                     <li className={css.inCardListItem}>
                       <svg width={20} height={18}>
-                        <use href="../../../public/svg-sprite.svg#icon-wind" />
+                        <use href="/svg-sprite.svg#icon-wind" />
                       </svg>
                       AC {camper.AC}
                     </li>

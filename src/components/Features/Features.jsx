@@ -3,7 +3,7 @@ import css from './Features.module.css';
 
 const Features = () => {
   const location = useLocation();
-  const { features } = location.state || {}; 
+  const { features } = location.state || {};
 
   if (!features) return <p>No features available.</p>;
 
@@ -13,7 +13,7 @@ const Features = () => {
         {features.transmission && (
           <li className={css.listItem}>
             <svg width={20} height={16}>
-              <use href="../../../public/svg-sprite.svg#icon-diagram" />
+              <use href="/svg-sprite.svg#icon-diagram" />
             </svg>
             {features.transmission}
           </li>
@@ -21,7 +21,7 @@ const Features = () => {
         {features.AC && (
           <li className={css.listItem}>
             <svg width={20} height={18}>
-              <use href="../../../public/svg-sprite.svg#icon-wind" />
+              <use href="/svg-sprite.svg#icon-wind" />
             </svg>
             AC{features.AC}
           </li>
@@ -38,7 +38,7 @@ const Features = () => {
         {features.bathroom && (
           <li className={css.listItem}>
             <svg width={20} height={18}>
-              <use href="../../../public/svg-sprite.svg#icon-shower" />
+              <use href="/svg-sprite.svg#icon-shower" />
             </svg>
             bathroom{features.bathroom}
           </li>
@@ -46,7 +46,7 @@ const Features = () => {
         {features.kitchen && (
           <li className={css.listItem}>
             <svg width={20} height={18}>
-              <use href="../../../public/svg-sprite.svg#icon-cup-hot" />
+              <use href="/svg-sprite.svg#icon-cup-hot" />
             </svg>
             kitchen{features.kitchen}
           </li>
@@ -54,7 +54,7 @@ const Features = () => {
         {features.TV && (
           <li className={css.listItem}>
             <svg width={20} height={18}>
-              <use href="../../../public/svg-sprite.svg#icon-tv" />
+              <use href="/svg-sprite.svg#icon-tv" />
             </svg>
             TV{features.TV}
           </li>
@@ -62,7 +62,7 @@ const Features = () => {
         {features.radio && (
           <li className={css.listItem}>
             <svg width={20} height={18}>
-              <use href="../../../public/svg-sprite.svg#icon-radio" />
+              <use href="/svg-sprite.svg#icon-radio" />
             </svg>
             radio{features.radio}
           </li>
@@ -70,7 +70,7 @@ const Features = () => {
         {features.refrigerator && (
           <li className={css.listItem}>
             <svg width={20} height={18}>
-              <use href="../../../public/svg-sprite.svg#icon-solar_fridge-outline" />
+              <use href="/svg-sprite.svg#icon-solar_fridge-outline" />
             </svg>
             refrigerator{features.refrigerator}
           </li>
@@ -97,7 +97,7 @@ const Features = () => {
         {features.gas && (
           <li className={css.listItem}>
             <svg width={20} height={18}>
-              <use href="../../../public/svg-sprite.svg#icon-hugeicons_gas-stove" />
+              <use href="/svg-sprite.svg#icon-hugeicons_gas-stove" />
             </svg>
             gas{features.gas}
           </li>

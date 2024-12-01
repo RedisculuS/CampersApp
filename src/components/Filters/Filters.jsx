@@ -86,7 +86,7 @@ const Filters = () => {
             }
           >
             <svg width={33} height={30}>
-              <use href="../../../public/svg-sprite.svg#icon-cup-hot" />
+              <use href="/svg-sprite.svg#icon-cup-hot" />
             </svg>
             <div>Kitchen</div>
           </button>
@@ -95,7 +95,7 @@ const Filters = () => {
             onClick={() => handleTempFilterChange('TV', !tempFilters.TV)}
           >
             <svg width={32} height={25}>
-              <use href="../../../public/svg-sprite.svg#icon-tv" />
+              <use href="/svg-sprite.svg#icon-tv" />
             </svg>
             <div>TV</div>
           </button>
@@ -108,7 +108,7 @@ const Filters = () => {
             }
           >
             <svg width={31} height={27}>
-              <use href="../../../public/svg-sprite.svg#icon-shower" />
+              <use href="/svg-sprite.svg#icon-shower" />
             </svg>
             <div>Bathroom</div>
           </button>
@@ -131,7 +131,7 @@ const Filters = () => {
             }
           >
             <svg width={32} height={32}>
-              <use href="../../../public/svg-sprite.svg#icon-grid-1x2" />
+              <use href="/svg-sprite.svg#icon-grid-1x2" />
             </svg>
             <div>Van</div>
           </button>
@@ -148,7 +148,7 @@ const Filters = () => {
             }
           >
             <svg width={28} height={28}>
-              <use href="../../../public/svg-sprite.svg#icon-grid" />
+              <use href="/svg-sprite.svg#icon-grid" />
             </svg>
             <div> Fully Integrated</div>
           </button>
@@ -164,7 +164,7 @@ const Filters = () => {
             }
           >
             <svg width={28} height={28}>
-              <use href="../../../public/svg-sprite.svg#icon-gap" />
+              <use href="/svg-sprite.svg#icon-gap" />
             </svg>
             <div>Alcove</div>
           </button>
