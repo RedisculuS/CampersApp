@@ -43,7 +43,7 @@ const Filters = () => {
             onChange={e => handleTempFilterChange('location', e.target.value)}
           />
           <svg className={css.inputIcon}>
-            <use href="../../../public/svg-sprite.svg#icon-map" />
+            <use href="/svg-sprite.svg#icon-map" />
           </svg>
         </div>
       </div>
@@ -57,7 +57,7 @@ const Filters = () => {
             onClick={() => handleTempFilterChange('AC', !tempFilters.AC)}
           >
             <svg width={32} height={28}>
-              <use href="../../../public/svg-sprite.svg#icon-wind" />
+              <use href="/svg-sprite.svg#icon-wind" />
             </svg>
             <div>AC</div>
           </button>
@@ -73,7 +73,7 @@ const Filters = () => {
             }
           >
             <svg width={32} height={24}>
-              <use href="../../../public/svg-sprite.svg#icon-diagram" />
+              <use href="/svg-sprite.svg#icon-diagram" />
             </svg>
             <div>Automatic</div>
           </button>
