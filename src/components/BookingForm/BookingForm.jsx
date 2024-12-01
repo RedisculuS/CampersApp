@@ -19,11 +19,9 @@ const BookingForm = () => {
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
 
   const handleDateChange = date => {
-    console.log('Selected date (raw):', date);
     const normalizedDate = new Date(
       Date.UTC(date.getFullYear(), date.getMonth(), date.getDate())
     );
-    console.log('Normalized date:', normalizedDate);
 
     const today = new Date();
     today.setHours(0, 0, 0, 0);
